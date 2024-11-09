@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9y)j989i@!9)czs3$c&jo0ucfj-ycqt48-x21mq7sj%$=io13#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"] #允许所有
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'zykauth'
+    'zykauth',
+    'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = '869550165@qq.com'
 EMAIL_HOST_PASSWORD = 'vqamorpqpbhebcfc'
 DEFAULT_FROM_EMAIL = '869550165@qq.com'
+
+SECURE_SSL_REDIRECT = False

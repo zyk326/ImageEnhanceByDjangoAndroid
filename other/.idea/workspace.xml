@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="910e835d-c9bd-457d-8c2f-00f829b12c09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../requirement.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogWeb/LogWeb/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/LogWeb/LogWeb/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +74,7 @@
       <updated>1730294389971</updated>
       <workItem from="1730294390999" duration="33000" />
       <workItem from="1730294525336" duration="25000" />
+      <workItem from="1730955146178" duration="104000" />
     </task>
     <servers />
   </component>
