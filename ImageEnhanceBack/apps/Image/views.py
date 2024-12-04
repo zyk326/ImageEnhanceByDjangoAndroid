@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.views import View
 from rest_framework.views import APIView
 from .serializers import UploadImageSerializer
 from shortuuid import uuid
@@ -46,3 +48,7 @@ class UploadImage(APIView):
 class HealthCheckView(APIView):
     def get(self, request):
         return Response({"code":"200"})
+
+class ConnectView(View):
+    def get(self, request):
+        return HttpResponse("这是返回的内容")
