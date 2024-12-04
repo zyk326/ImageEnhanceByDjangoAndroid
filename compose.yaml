@@ -26,6 +26,8 @@ services:
     build: ./ImageEnhanceBack
     restart: always
     container_name: "imageenhanceback"
+    ports:                       # 添加端口映射配置
+      - "8000:8000"             # 映射主机的8000端口到容器的8000端口
     healthcheck:
       test: curl -f http://127.0.0.1:8000/image/health
     depends_on:
