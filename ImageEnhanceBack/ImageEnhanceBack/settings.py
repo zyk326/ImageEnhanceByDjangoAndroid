@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.IEauth',
     'apps.Image',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'ImageEnhanceBack.urls'
@@ -143,3 +145,7 @@ MEDIA_URL = '/media/'
 # 添加增强后图片文件存放位置
 ENHANCED_ROOT = MEDIA_ROOT / 'enhanced'
 ENHANCED_URL = '/media/enhanced/'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://8.155.30.228",
+]
