@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rcx59f-#w5_!k0%^z4*#0vlcnz#c^&$=y&b73g$lj$#k4y%vka
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.137.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'apps.IEauth'
+    'apps.IEauth',
+    'apps.Image',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'IEauth.IEUser'
+
+# 添加媒体文件存放位置
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
+# 添加增强后图片文件存放位置
+ENHANCED_ROOT = MEDIA_ROOT / 'enhanced'
+ENHANCED_URL = '/media/enhanced/'

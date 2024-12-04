@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.IEauth.urls')),
-]
+    path('image/', include('apps.Image.urls')),
+] + static(settings.ENHANCED_URL, document_root=settings.ENHANCED_ROOT) # 添加静态文件外部访问

@@ -16,6 +16,7 @@ class LoginSerializer(serializers.Serializer):
 
         if username and password:
             user = IEUser.objects.filter(username=username).first()
+
             if not user:
                 raise serializers.ValidationError("请输入正确的邮箱!")
             if not user.check_password(password):

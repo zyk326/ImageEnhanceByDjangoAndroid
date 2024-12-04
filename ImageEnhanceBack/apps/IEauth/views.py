@@ -1,3 +1,4 @@
+from datetime import datetime
 from rest_framework.views import APIView
 from .serializers import LoginSerializer, UserSerializer, RegisterSerializer
 from rest_framework.response import Response
@@ -9,6 +10,7 @@ class LoginView(APIView):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.validated_data.get('user')
+            user.last_login = datetime.now()
             user.save()
             return Response({'user' : UserSerializer(user).data})
         else:
