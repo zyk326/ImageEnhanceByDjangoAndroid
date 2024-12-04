@@ -29,7 +29,7 @@ services:
     healthcheck:
       test: curl -f http://127.0.0.1:8000/image/health
     depends_on:
-      oadb:
+      iedb:
         condition: service_healthy
     volumes:
       - ./volumes/sock:/data/sock
