@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'ImageEnhanceBack.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env("DB_NAME", 'iedb'),
-        'USER': env("DB_USER", 'root'),
-        'PASSWORD': env("DB_PASSWORD", '123456'),
-        'HOST': env("DB_HOST", 'iedb'),
+        'NAME': env.str("DB_NAME", 'iedb'),
+        'USER': env.str("DB_USER", 'root'),
+        'PASSWORD': env.str("DB_PASSWORD", '123456'),
+        'HOST': env.str("DB_HOST", 'iedb'),
         'PORT': '3306',
     }
 }

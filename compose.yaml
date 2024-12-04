@@ -1,4 +1,4 @@
-name: ImageEnhance
+name: imageenhance
 services:
   iedb:
     image: "mysql:8.4.0"
@@ -22,10 +22,10 @@ services:
       - ./volumes/db/log:/var/log/mysql
     networks:
       - oa
-  ImageEnhanceBack:
+  imageenhanceback:
     build: ./ImageEnhanceBack
     restart: always
-    container_name: "ImageEnhanceBack"
+    container_name: "imageenhanceback"
     healthcheck:
       test: curl -f http://127.0.0.1:8000/image/health
     depends_on:
