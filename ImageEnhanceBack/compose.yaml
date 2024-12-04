@@ -1,0 +1,40 @@
+name: ImageEnhance
+services:
+  iedb:
+    image: "mysql:8.4.0"
+    container_name: "iedb"
+    restart: always
+    environment:
+      MYSQL_DATABASE: iedb
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ROOT_PASSWORD: '123456'
+      MYSQL_USER: 'iedb'
+      MYSQL_PASSWORD: '123456'
+      TZ: Asia/Shanghai
+    command:
+      --character-set-server=UTF8MB4
+      --max_connections=1000
+    healthcheck:
+      test: ["CMD","mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p123456"]
+    volumes:
+      # mysql容器中的数据，是存储在/var/lib/mysql下
+      - ./volumes/db/data:/var/lib/mysql
+      - ./volumes/db/log:/var/log/mysql
+    networks:
+      - oa
+  ImageEnhanceBack:
+    build: ./ImageEnhanceBack
+    restart: always
+    container_name: "ImageEnhanceBack"
+    healthcheck:
+      test: curl -f http://127.0.0.1:8000/image/health
+    depends_on:
+      iedb:
+        condition: service_healthy
+    volumes:
+      - ./volumes/sock:/data/sock
+    networks:
+      - oa
+networks:
+  oa:
+    driver: "bridge"

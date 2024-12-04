@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
 
+env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,10 +84,10 @@ WSGI_APPLICATION = 'ImageEnhanceBack.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ImageEnhanceDB',
-        'USER': 'root',
-        'PASSWORD': '444',
-        'HOST': '127.0.0.1',
+        'NAME': env("DB_NAME", 'iedb'),
+        'USER': env("DB_USER", 'root'),
+        'PASSWORD': env("DB_PASSWORD", '123456'),
+        'HOST': env("DB_HOST", 'iedb'),
         'PORT': '3306',
     }
 }

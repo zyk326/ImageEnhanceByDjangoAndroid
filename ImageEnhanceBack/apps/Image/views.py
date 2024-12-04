@@ -42,3 +42,7 @@ class UploadImage(APIView):
                 "errno": 1,
                 "message": list(serializer.errors.values())[0][0]
             })
+
+class HealthCheckView(APIView):
+    def get(self, request):
+        return Response({"code":"200"})
