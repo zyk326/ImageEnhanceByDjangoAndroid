@@ -28,6 +28,7 @@ services:
     container_name: "imageenhanceback"
     ports:                       # 添加端口映射配置
       - "8000:8000"             # 映射主机的8000端口到容器的8000端口
+      - "80:80"
     healthcheck:
       test: curl -f http://127.0.0.1:8000/image/health
     depends_on:
@@ -35,6 +36,7 @@ services:
         condition: service_healthy
     volumes:
       - ./volumes/sock:/data/sock
+      - ./media/enhanced:/www/media/enhanced
     networks:
       - oa
 networks:
